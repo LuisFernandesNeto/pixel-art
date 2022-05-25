@@ -14,3 +14,19 @@ function createBox() {
     }
 }
 createBox();
+
+const firstColor = document.querySelector(".first");
+const secondColor = document.querySelector(".second");
+const thirdColor = document.querySelector(".third");
+const fourthColor = document.querySelector(".fourth");
+
+function handleChangeSelect(event) {
+    const selectEvent = document.querySelector(".selected");
+    selectEvent.classList.remove("selected");
+    event.target.classList.add("selected");
+}
+
+firstColor.addEventListener("click", handleChangeSelect);
+secondColor.addEventListener("click", handleChangeSelect);
+thirdColor.addEventListener("click", handleChangeSelect);
+fourthColor.addEventListener("click", handleChangeSelect);
