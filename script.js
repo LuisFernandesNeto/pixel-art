@@ -33,23 +33,18 @@ thirdColor.addEventListener("click", handleChangeSelect);
 fourthColor.addEventListener("click", handleChangeSelect);
 
 //8
-let box = document.querySelector("#pixel-board");
-let selected = document.querySelector(".selected");
-let colors = document.querySelectorAll(".color");
-
-box.addEventListener("click", function(event) {
+    let box = document.querySelector("#pixel-board");
+    let selected = document.querySelector(".selected");
+    let colors = document.querySelectorAll(".color");
     let paint;
-    if (colors[0].className.includes("selected")) {
-        paint = "black";
-    }
-    event.target.backgroundColor = "black";
-})
-    box.addEventListener("click", function(event) {
-        let color = window.getComputedStyle(colors);
-        for (let index = 0; index < colors.length; index += 1) {
-            if (colors[index].className.includes("selected")) {
-                paint = color.backgroundColor;
+
+            
+        box.addEventListener("click", function(event) {
+            for (let index = 0; index < colors.length; index += 1) {
+                if (colors[index].className.includes("selected")) {
+                    paint = getComputedStyle(box, null).getPropertyValue("selected")
+                }
             }
-        }
-        event.target = paint;
-    })
+            event.target.style.backgroundColor = paint;
+        })
+        
