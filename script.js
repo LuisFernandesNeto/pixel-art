@@ -56,3 +56,5 @@ let button = document.querySelector("#clear-board");
         }
         event.target.style.backgroundColor = "white";
     })
+
+//10
