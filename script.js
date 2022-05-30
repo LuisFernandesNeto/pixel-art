@@ -16,35 +16,56 @@ function createBox() {
 createBox();
 
 //7
-const firstColor = document.querySelector(".first");
-const secondColor = document.querySelector(".second");
-const thirdColor = document.querySelector(".third");
-const fourthColor = document.querySelector(".fourth");
-
 function handleChangeSelect(event) {
     const selectEvent = document.querySelector(".selected");
     selectEvent.classList.remove("selected");
     event.target.classList.add("selected");
 }
+let colors = document.getElementsByClassName("color");
+let palette = document.querySelector("#color-palette");
 
-firstColor.addEventListener("click", handleChangeSelect);
-secondColor.addEventListener("click", handleChangeSelect);
-thirdColor.addEventListener("click", handleChangeSelect);
-fourthColor.addEventListener("click", handleChangeSelect);
+palette.addEventListener("click", function(event){
+    let add = event.target;
+    for (let index = 0; index < colors.length; index += 1) {
+         colors[index].classList.remove("selected");
+    }
+    add.classList.add("selected");
+
 
 //8
-    let box = document.querySelector("#pixel-board");
-    let selected = document.querySelector(".selected");
-    let colors = document.querySelectorAll(".color");
-    let paint;
+let box = document.getElementById("pixel-board");
 
-            
-        box.addEventListener("click", function(event) {
-            for (let index = 0; index < colors.length; index += 1) {
-                if (colors[index].className.includes("selected")) {
-                    paint = getComputedStyle(box, null).getPropertyValue("selected")
-                }
+window.onboard = box.addEventListener("click", function(event) {
+    let color;
+    if (colors[0].className.includes("selected")) {
+        color = "black";
+    }
+    event.target.style.backgroundColor = "black";
+}) 
+
+let paint;
+
+    box.addEventListener("click", function(event) {
+        for (let index = 0; index < colors.length; index += 1) {
+            if (colors[index].className.includes("selected")) {
+                    console.log(paint = getComputedStyle(colors[index]).backgroundColor);
+                    
             }
-            event.target.style.backgroundColor = paint;
-        })
-        
+        }
+            event.target.style.backgroundColor = paint;    
+    })
+}) 
+
+//9
+
+let button = document.querySelector("#clear-board");
+    button.addEventListener("click", function(event) {
+        let clear;
+        let pixel = document.getElementsByClassName("pixel");
+        for (let index = 0; index < pixel.length; index += 1) {
+            if (pixel[index] !== "white") {
+                clear = getComputedStyle(pixel).backgroundColor;
+            }
+        }
+        event.target.style.backgroundColor = "white";
+    })
