@@ -30,18 +30,9 @@ palette.addEventListener("click", function(event){
          colors[index].classList.remove("selected");
     }
     add.classList.add("selected");
-
-
-//8
-let box = document.getElementById("pixel-board");
-
-window.onboard = box.addEventListener("click", function(event) {
-    let color;
-    if (colors[0].className.includes("selected")) {
-        color = "black";
-    }
-    event.target.style.backgroundColor = "black";
 }) 
+
+let box = document.getElementById("pixel-board");
 
 let paint;
 
@@ -54,18 +45,14 @@ let paint;
         }
             event.target.style.backgroundColor = paint;    
     })
-}) 
 
 //9
 
 let button = document.querySelector("#clear-board");
     button.addEventListener("click", function(event) {
-        let clear;
         let pixel = document.getElementsByClassName("pixel");
         for (let index = 0; index < pixel.length; index += 1) {
-            if (pixel[index] !== "white") {
-                clear = getComputedStyle(pixel).backgroundColor;
-            }
+            pixel[index].style.backgroundColor = "white"
         }
         event.target.style.backgroundColor = "white";
     })
