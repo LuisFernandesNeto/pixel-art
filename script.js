@@ -16,9 +16,21 @@ function createBox() {
 createBox();
 
 let button2 = document.getElementById("generate-board");
+let size = document.getElementById("board-size")
+let n = size.innerText; 
 
 button2.addEventListener("click", function(event) {
-    
+        if (n == undefined) {
+            alert("Board inválido!")
+        }
+    for (let index = 0; index < n; index += 1) {
+        for (let secondIndex = 0; secondIndex < n; secondIndex +=1) {
+            let div = document.createElement("div");
+            div.className = "pixel";
+            div.style.backgroundColor = "white";
+            pixelBox.appendChild(div);
+        }
+    }
 })
 
 //7
