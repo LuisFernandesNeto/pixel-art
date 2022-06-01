@@ -15,6 +15,12 @@ function createBox() {
 }
 createBox();
 
+let button2 = document.getElementById("generate-board");
+
+button2.addEventListener("click", function(event) {
+    
+})
+
 //7
 function handleChangeSelect(event) {
     const selectEvent = document.querySelector(".selected");
