@@ -1,11 +1,11 @@
 //4
-let line = 5;
-let column = 5;
+let n = 5;
+
 
 let pixelBox = document.querySelector("#pixel-board");
 function createBox() {
-    for (let index = 0; index < line; index += 1) {
-        for (let secondIndex = 0; secondIndex < column; secondIndex +=1) {
+    for (let index = 0; index < n; index += 1) {
+        for (let secondIndex = 0; secondIndex < n; secondIndex +=1) {
             let div = document.createElement("div");
             div.className = "pixel";
             div.style.backgroundColor = "white";
@@ -17,10 +17,10 @@ createBox();
 
 let button2 = document.getElementById("generate-board");
 let size = document.getElementById("board-size")
-let n = size.innerText; 
 
-button2.addEventListener("click", function(event) {
-        if (n == undefined) {
+button2.addEventListener("click", function() {
+    let n = size.value; 
+        if (typeof n == "string") {
             alert("Board inválido!")
         }
     for (let index = 0; index < n; index += 1) {
