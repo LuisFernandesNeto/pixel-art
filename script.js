@@ -20,7 +20,7 @@ let size = document.getElementById("board-size")
 
 button2.addEventListener("click", function() {
     let n = size.value; 
-        if (typeof n == "string") {
+        if (n == "") {
             alert("Board inválido!")
         }
     for (let index = 0; index < n; index += 1) {
